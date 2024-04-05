@@ -1,18 +1,19 @@
-# Skin Lesion Diagnosis Backend
+# Серверная часть диагностики кожных поражений
 
-This backend is built using FastAPI and utilizes SQLite as its database. It serves as a part of a decision support system for diagnosing skin lesions.
+Эта серверная часть построена с использованием FastAPI и использует SQLite в качестве базы данных. Она служит частью системы поддержки принятия решений для диагностики кожных поражений.
 
-## Features
+## Особенности
 
-- CRUD operations for patients, diagnoses, images, and user authentication.
-- Skin lesion segmentation using a neural network trained on 7500 images for classifying nevus, melanoma, and seborrheic keratosis with an accuracy of 86%.
-- Segmentation endpoint with an accuracy of 85%.
+- Операции CRUD для пациентов, диагностики, изображений и аутентификации пользователей.
+- Сегментация повреждений кожи с использованием нейронной сети, обученной на 7500 изображениях, для классификации невусов, меланомы и себорейного кератоза с точностью до 86%.
+- Конечная точка сегментации с точностью до 85%.
 
-## Setup
+## Настройка
 
-To run the backend on your local machine, follow these steps:
+Чтобы запустить серверную часть на вашем локальном компьютере, выполните следующие действия:
 
-1. Clone the repository:
+1. Клонируйте репозиторий:
+
 
 ```bash
 git clone https://github.com/your/repository.git
@@ -25,44 +26,45 @@ venv\Scripts\activate.bat
 pip install -r requirements.txt
 
 uvicorn main:app --reload
+```
 
-## API Endpoints
+## Конечные точки API
 
 ### /patients
 
-- **GET**: Retrieve all patients
-- **POST**: Add a new patient
-- **PUT**: Update an existing patient
-- **DELETE**: Delete a patient
+- **GET**: Восстановить всех пациентов
+- **POST**: Добавить нового пациента
+- **PUT**: Обновить существующего пациента
+- **DELETE**: Удалить пациента
 
 ### /diagnoses
 
-- **GET**: Retrieve all diagnoses
-- **POST**: Add a new diagnosis
-- **PUT**: Update an existing diagnosis
-- **DELETE**: Delete a diagnosis
+- **GET**: Восстановить все диагнозы
+- **POST**: Добавить новый диагноз
+- **PUT**: Обновить существующий диагноз
+- **DELETE**: Удалить диагноз
 
 ### /images
 
-- **GET**: Retrieve all images
-- **POST**: Add a new image
-- **PUT**: Update an existing image
-- **DELETE**: Delete an image
+- **GET**: Получить все изображения
+- **POST**: Добавить новое изображение
+- **PUT**: Обновить существующее изображение
+- **DELETE**: Удалить изображение
 
 ### /auth
 
-- **POST**: Authenticate user
+- **POST**: Аутентифицировать пользователя
 
-### /segmentation
+### /сегментация
 
-- **POST**: Perform lesion segmentation
+- **POST**: Выполнить сегментацию повреждения
 
-## Segmentation Endpoint
+## Конечная точка сегментации
 
-### POST /segmentation
+### POST /classification
 
-Perform skin lesion segmentation using a neural network model trained on 7500 images. Input image is required as part of the request payload. Returns segmented image.
+Выполните классификацию повреждения кожи.
 
-## Neural Network Model
+## Модель нейронной сети
 
-The neural network model used for segmentation achieves an accuracy of 85% in accurately segmenting skin lesions into nevus, melanoma, and seborrheic keratosis.
+Модель нейронной сети, используемая для сегментации efficient-b0, обеспечивает точность в 86% при разделении поражений кожи на невусы, меланому и себорейный кератоз. Используя модель нейронной сети, обученную на 7500 изображениях. Ручка возвращает диагноз и вероятность.
