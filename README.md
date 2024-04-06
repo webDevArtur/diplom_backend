@@ -59,7 +59,7 @@ uvicorn main:app --reload
 
 - **POST**: Выполнить сегментацию повреждения
 
-### POST /classification
+### /classification
 
 - **POST**: Выполнить классификацию повреждения
 
